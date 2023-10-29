@@ -1,18 +1,18 @@
-variable "access_key" {
+variable "AWS_ACCESS_KEY" {
     description = "Access key to AWS console"
 }
-variable "secret_key" {
+variable "AWS_SECRET_KEY" {
     description = "Secret key to AWS console"
 }
-variable "region" {
+variable "AWS_REGION" {
     description = "AWS region"
 }
-variable "db_name" {
+variable "DB_NAME" {
     description = "Database name"
 }
-variable "db_password" {
+variable "DB_PASSWORD" {
     description = "Database root password"
 }
-variable "db_user" {
+variable "DB_USER" {
     description = "Database root user"
 }
