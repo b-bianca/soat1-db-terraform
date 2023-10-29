@@ -1,3 +1,13 @@
+terraform {
+  cloud {
+    organization = "fiap-postech-soat1-group21"
+    workspaces {
+      name = "restaurant"
+    }
+  }
+}
+
+
 #defining the provider as aws
 provider "aws" {
   region     = var.AWS_REGION
@@ -23,7 +33,7 @@ resource "aws_security_group" "rds_sg" {
 }
 
 #create a RDS Database Instance
-resource "aws_db_instance" "db-instance" {
+resource "aws_db_instance" "db_instance" {
   engine                 = "mysql"
   identifier             = var.DB_NAME
   allocated_storage      = 20
@@ -31,7 +41,6 @@ resource "aws_db_instance" "db-instance" {
   instance_class         = "db.t2.micro"
   username               = var.DB_USER
   password               = var.DB_PASSWORD
-  parameter_group_name   = "default.mysql8.0.33"
   vpc_security_group_ids = ["${aws_security_group.rds_sg.id}"]
   skip_final_snapshot    = true
   publicly_accessible    = true
