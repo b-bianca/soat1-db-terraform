@@ -1,18 +1,18 @@
 variable "AWS_ACCESS_KEY" {
-    description = "Access key to AWS console"
+  description = "Access key to AWS console"
 }
 variable "AWS_SECRET_KEY" {
-    description = "Secret key to AWS console"
+  description = "Secret key to AWS console"
 }
 variable "AWS_REGION" {
-    description = "AWS region"
+  description = "AWS region"
 }
 variable "DB_NAME" {
-    description = "Database name"
+  description = "Database name"
 }
 variable "DB_PASSWORD" {
-    description = "Database root password"
+  description = "Database root password"
 }
 variable "DB_USER" {
-    description = "Database root user"
+  description = "Database root user"
 }
