@@ -1,8 +1,8 @@
 #defining the provider as aws
 provider "aws" {
-    region     = "${var.region}"
-    access_key = "${var.access_key}"
-    secret_key = "${var.secret_key}"
+    region     = "${var.AWS_REGION}"
+    access_key = "${var.AWS_ACCESS_KEY}"
+    secret_key = "${var.AWS_SECRET_KEY}"
 }
 
 #create a security group for RDS Database Instance
@@ -25,12 +25,12 @@ resource "aws_security_group" "rds_sg" {
 #create a RDS Database Instance
 resource "aws_db_instance" "db-instance" {
   engine               = "mysql"
-  identifier           = var.db_name
+  identifier           = var.DB_NAME
   allocated_storage    =  20
   engine_version       = "8.0.33"
   instance_class       = "db.t2.micro"
-  username             = var.db_user
-  password             = var.db_password
+  username             = var.DB_USER
+  password             = var.DB_PASSWORD
   parameter_group_name = "default.mysql8.0.33"
   vpc_security_group_ids = ["${aws_security_group.rds_sg.id}"]
   skip_final_snapshot  = true
