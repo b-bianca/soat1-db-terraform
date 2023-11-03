@@ -1,3 +1,4 @@
+[![Terraform Apply](https://github.com/fiap-postech-soat1-group21/restaurant-database/actions/workflows/terraform-apply.yml/badge.svg)](https://github.com/fiap-postech-soat1-group21/restaurant-database/actions/workflows/terraform-apply.yml)
 # Software Architecture - Tech Challenge
 
 Veja a Wiki do projeto em: 
@@ -31,3 +32,4 @@ terraform apply
 
 ## Como executar o projeto pelo Github Actions
 Todas as mudanças realizadas no código e mergeadas na branch `main` iniciarão a pipeline no GitHub Actions. Essa pipeline é responsável por verificar o código e realizar o deploy dos serviços na núvem de forma automática.
+
