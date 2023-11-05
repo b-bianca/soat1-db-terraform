@@ -16,3 +16,6 @@ variable "DB_PASSWORD" {
 variable "DB_USER" {
   description = "Database root user"
 }
+variable "DB_PORT" {
+  description = "Database port"
+}
