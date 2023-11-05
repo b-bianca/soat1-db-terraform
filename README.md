@@ -3,7 +3,8 @@
 
 Entrega FASE 3 - Terraform e AWS
 
-Veja a Wiki do projeto em: 
+Veja a Wiki do projeto em: https://github.com/b-bianca/soat1-challenge1/wiki
+
 
 ## Requisitos
 
