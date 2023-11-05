@@ -1,10 +1,9 @@
 [![Terraform Apply](https://github.com/fiap-postech-soat1-group21/restaurant-database/actions/workflows/terraform-apply.yml/badge.svg)](https://github.com/fiap-postech-soat1-group21/restaurant-database/actions/workflows/terraform-apply.yml)
 # Software Architecture - Tech Challenge
 
-Veja a Wiki do projeto em: 
-<details>
+Entrega FASE 3 - Terraform e AWS
 
-<summary>Entrega FASE 3 - Terraform e AWS</summary>
+Veja a Wiki do projeto em: 
 
 ## Requisitos
 
@@ -32,4 +31,9 @@ terraform apply
 
 ## Como executar o projeto pelo Github Actions
 Todas as mudanças realizadas no código e mergeadas na branch `main` iniciarão a pipeline no GitHub Actions. Essa pipeline é responsável por verificar o código e realizar o deploy dos serviços na núvem de forma automática.
+
+## Diagrama
+
+![image](https://github.com/fiap-postech-soat1-group21/restaurant-database/assets/83218983/b980af01-b2f5-46e9-90ca-6b17b85ab574)
+
 
