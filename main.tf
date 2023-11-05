@@ -48,7 +48,7 @@ resource "aws_db_instance" "db_instance" {
 
 output "restaurant_database_address" {
   description = "Restaurant database address"
-  value = aws_db_instance.db_instance.address
+  value       = aws_db_instance.db_instance.address
 }
 
 data "local_file" "sql_script" {
