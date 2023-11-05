@@ -46,13 +46,10 @@ resource "aws_db_instance" "db_instance" {
   publicly_accessible    = true
 }
 
-# data "aws_db_instance" "db_instance" {
-#   instance_identifier = aws_db_instance.db_instance.identifier
-# }
-
-# output "db_instance_endpoint" {
-#   value = data.aws_db_instance.db_instance.endpoint
-# }
+output "restaurant_database_address" {
+  description = "Restaurant database address"
+  value = aws_db_instance.db_instance.address
+}
 
 data "local_file" "sql_script" {
   filename = "${path.module}/migrations/sql/01_create_database.up.sql"
