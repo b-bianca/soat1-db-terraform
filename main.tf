@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "fiap-postech-soat1-group21"
     workspaces {
-      name = "restaurant"
+      name = "restaurant-database"
     }
   }
 }
@@ -17,10 +17,10 @@ provider "aws" {
 
 #create a security group for RDS Database Instance
 resource "aws_security_group" "rds_sg" {
-  name = "rds_sg"
+  name = "restaurant-database-sg"
   ingress {
-    from_port   = 3306
-    to_port     = 3306
+    from_port   = var.DB_PORT
+    to_port     = var.DB_PORT
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -44,4 +44,20 @@ resource "aws_db_instance" "db_instance" {
   vpc_security_group_ids = ["${aws_security_group.rds_sg.id}"]
   skip_final_snapshot    = true
   publicly_accessible    = true
+}
+
+output "restaurant_database_address" {
+  description = "Restaurant database address"
+  value       = aws_db_instance.db_instance.address
+}
+
+data "local_file" "sql_script" {
+  filename = "${path.module}/migrations/sql/01_create_database.up.sql"
+}
+
+resource "null_resource" "db_setup" {
+  depends_on = [aws_db_instance.db_instance, aws_security_group.rds_sg]
+  provisioner "local-exec" {
+    command = "mysql --host=${aws_db_instance.db_instance.address} --user=${var.DB_PORT} --password=${var.DB_PASSWORD} < ${data.local_file.sql_script.content}"
+  }
 }
