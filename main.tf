@@ -55,9 +55,9 @@ data "local_file" "sql_script" {
   filename = "${path.module}/migrations/sql/01_create_database.up.sql"
 }
 
-resource "null_resource" "db_setup" {
-  depends_on = [aws_db_instance.db_instance, aws_security_group.rds_sg]
-  provisioner "local-exec" {
-    command = "mysql --host=${aws_db_instance.db_instance.address} --port=${var.DB_PORT} --user=${var.DB_USER} --password=${var.DB_PASSWORD} < ${data.local_file.sql_script.content}"
-  }
-}
+# resource "null_resource" "db_setup" {
+#   depends_on = [aws_db_instance.db_instance, aws_security_group.rds_sg]
+#   provisioner "local-exec" {
+#     command = "mysql --host=${aws_db_instance.db_instance.address} --port=${var.DB_PORT} --user=${var.DB_USER} --password=${var.DB_PASSWORD} < ${data.local_file.sql_script.content}"
+#   }
+# }
